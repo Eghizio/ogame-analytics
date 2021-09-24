@@ -1,11 +1,14 @@
+import { ChakraProvider } from "@chakra-ui/react";
 import { ProfileProvider } from "../context/ProfileProvider";
 import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }) => {
 	return (
-		<ProfileProvider>
-			<Component {...pageProps} />
-		</ProfileProvider>
+		<ChakraProvider>
+			<ProfileProvider>
+				<Component {...pageProps} />
+			</ProfileProvider>
+		</ChakraProvider>
 	);
 };
 

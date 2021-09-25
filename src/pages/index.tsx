@@ -1,13 +1,14 @@
-import Link from "next/link";
+import { Box, Heading, Link } from "@chakra-ui/layout";
+import NextLink from "next/link";
 
 const Home = () => {
 	return (
-		<div>
-			<h1>Home</h1>
-			<Link href="/settings">
-				<a>Settings</a>
-			</Link>
-		</div>
+		<Box>
+			<Heading>Home</Heading>
+			<NextLink href="/settings">
+				<Link>Settings</Link>
+			</NextLink>
+		</Box>
 	);
 };
 

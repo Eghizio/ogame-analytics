@@ -1,4 +1,7 @@
-import Link from "next/link";
+import { Box, Heading, Link, Text } from "@chakra-ui/layout";
+import { Select } from "@chakra-ui/select";
+import NextLink from "next/link";
+import { ChangeEventHandler, useEffect } from "react";
 import { Dropdown } from "../components/Dropdown";
 import { useProfile } from "../context/ProfileProvider";
 import { useAPI } from "../hooks/useAPI";
@@ -24,24 +27,39 @@ const Settings = () => {
 		getUniverseIDs
 	);
 
+	useEffect(() => {
+		if (!serverID && universesData)
+			setServerID(universesData.newestServerID);
+	}, [universesData]);
+
+	const handleSelectChange: ChangeEventHandler<HTMLSelectElement> = (
+		event
+	) => {
+		const selectedValue =
+			event.target.options[event.target.selectedIndex].value;
+		setServerID(selectedValue);
+	};
+
 	return (
-		<div>
-			<h1>Settings</h1>
-			<Link href="/">
-				<a>Home</a>
-			</Link>
-			<p>Message: {message}</p>
-			<p>Selected Server ID: {serverID}</p>
-			<div>
+		<Box>
+			<Heading>Settings</Heading>
+			<NextLink href="/">
+				<Link>Home</Link>
+			</NextLink>
+			<Box>
+				<Text>Message: {message}</Text>
+				<Text>Selected Server ID: {serverID}</Text>
 				{universesData && (
-					<Dropdown
-						items={universesData.serverIDs}
-						initialValue={serverID || universesData.newestServerID}
-						onChange={setServerID}
-					/>
+					<Select onChange={handleSelectChange} value={serverID}>
+						{universesData.serverIDs.map(({ value, label }) => (
+							<option key={value} value={value}>
+								{label}
+							</option>
+						))}
+					</Select>
 				)}
-			</div>
-		</div>
+			</Box>
+		</Box>
 	);
 };
 

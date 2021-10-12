@@ -1,10 +1,10 @@
 import { ChangeEventHandler, useEffect } from "react";
 import { Select } from "@chakra-ui/select";
-import { useAPI } from "../hooks/useAPI";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useOGameAPI } from "../../hooks/useOGameAPI";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export const ServerSelect = () => {
-	const { data } = useAPI<"universes">("universes");
+	const { data, isLoading } = useOGameAPI<"universes">("universes");
 	const [serverID, setServerID] = useLocalStorage("SERVER_ID", "");
 
 	useEffect(() => {
@@ -17,7 +17,7 @@ export const ServerSelect = () => {
 	};
 
 	// add loading and error state to useAPI
-	if (!data) {
+	if (isLoading) {
 		return (
 			<Select maxWidth="300px">
 				<option>Trying to load universe IDs</option>

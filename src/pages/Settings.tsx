@@ -21,11 +21,7 @@ const getUniverseIDs = (data) => {
 
 const Settings = () => {
 	const { message, serverID, setServerID } = useProfile();
-	const [universesData] = useAPI<"universes">(
-		"universes",
-		"179",
-		getUniverseIDs
-	);
+	const [universesData] = useAPI<"universes">("universes", getUniverseIDs);
 
 	useEffect(() => {
 		if (!serverID && universesData)

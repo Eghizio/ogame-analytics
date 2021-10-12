@@ -1,10 +1,6 @@
-import {
-	createContext,
-	Dispatch,
-	SetStateAction,
-	useContext,
-	useState,
-} from "react";
+import { createContext, Dispatch, SetStateAction, useContext } from "react";
+import { KEYS } from "../constants/localStorageKeys";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const ProfileContext = createContext<ProfileContextValue | undefined>(
 	undefined
@@ -20,7 +16,8 @@ export const useProfile = () => {
 };
 
 export const ProfileProvider = ({ children }) => {
-	const [serverID, setServerID] = useState("");
+	const [serverID, setServerID] = useLocalStorage<string>(KEYS.SERVER_ID, "");
+	// tbh we can remove it from here as we are keeping it in a localStorage, can retrieve it any time with this hook
 
 	const value = { message: "hello there", serverID, setServerID };
 

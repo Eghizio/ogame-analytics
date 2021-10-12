@@ -1,6 +1,6 @@
-export const getJSON = async (url: string) => {
+export const getJSON = async <T>(url: string) => {
     const response = await fetch(url);
-    const data = await response.json();
+    const data: T = await response.json();
 
     return data;
 };

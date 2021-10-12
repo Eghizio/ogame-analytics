@@ -5,8 +5,8 @@ const Home = () => {
 	return (
 		<Box>
 			<Heading>Home</Heading>
-			<NextLink href="/settings">
-				<Link>Settings</Link>
+			<NextLink href="/profile">
+				<Link>Profile</Link>
 			</NextLink>
 		</Box>
 	);

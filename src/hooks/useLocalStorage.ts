@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { KEYS } from "../constants/localStorageKeys";
+import { KEYS } from "_constants/localStorageKeys";
 
 
 export const  useLocalStorage = <T>(key: keyof typeof KEYS, initialValue: T) => {

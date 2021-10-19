@@ -1,7 +1,8 @@
-import { ChakraProvider } from "@chakra-ui/react";
 import { useRef } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { AuthProvider } from "../context/AuthProvider";
+import { ChakraProvider } from "@chakra-ui/react";
+import { AuthProvider } from "_context/AuthProvider";
+import { Navigation } from "_components/Navigation/Navigation";
 import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -20,7 +21,10 @@ const MyApp = ({ Component, pageProps }) => {
 		<ChakraProvider>
 			<QueryClientProvider client={queryClient.current}>
 				<AuthProvider>
+					<>
+					<Navigation />
 					<Component {...pageProps} />
+					</>
 				</AuthProvider>
 			</QueryClientProvider>
 		</ChakraProvider>

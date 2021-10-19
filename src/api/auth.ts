@@ -1,5 +1,5 @@
-import { getJSON } from "../utils/getJSON";
-import { User } from "../types/auth";
+import { getJSON } from "_utils/getJSON";
+import { User } from "_types/auth";
 
 
 // mocking stuff

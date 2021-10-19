@@ -20,7 +20,7 @@ const Login = () => {
 		// validate email and pwd
 
 		await login(email, password);
-		router.push("/profile"); // test if logged in
+		router.push("/account"); // test if logged in
 	};
 
 	return (

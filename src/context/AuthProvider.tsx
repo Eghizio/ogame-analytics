@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { Auth } from "../api/auth";
-import { User } from "../types/auth";
+import { Auth } from "_api/auth";
+import { User } from "_types/auth";
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }) => {
 
 	const login = async (email: string, password: string) => {
 		const user = await Auth.login(email, password);
+		console.log(user)
 		setUser(user);
 	};
 

@@ -1,9 +1,9 @@
 import { useQuery } from "react-query";
-import { useLocalStorage } from "./useLocalStorage";
-import { useAuth } from "../context/AuthProvider";
-import { getJSON } from "../utils/getJSON";
-import { ENDPOINTS } from "../constants/endpoints";
-import { OGameAPI } from "../types/api";
+import { useLocalStorage } from "_hooks/useLocalStorage";
+import { useAuth } from "_context/AuthProvider";
+import { getJSON } from "_utils/getJSON";
+import { ENDPOINTS } from "_constants/endpoints";
+import { OGameAPI } from "_types/api";
 
 
 export const useOGameAPI = <T extends keyof OGameAPI>(key: T) => {

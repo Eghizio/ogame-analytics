@@ -25,9 +25,26 @@ export const AuthProvider = ({ children }) => {
 		})();
 	}, []);
 
+	const register = async (email: string, password: string) => {
+		await Auth.register();
+	};
+
+	const login = async (email: string, password: string) => {
+		const user = await Auth.login(email, password);
+		setUser(user);
+	};
+
+	const logout = async () => {
+		await Auth.logout();
+		setUser(null);
+	};
+
 	const value = useMemo(
 		() => ({
 			user,
+			register,
+			login,
+			logout,
 		}),
 		[]
 	);
@@ -38,4 +55,7 @@ export const AuthProvider = ({ children }) => {
 
 interface AuthContextValue {
 	user: User | null;
+	register: (email: string, password: string) => Promise<void>;
+	login: (email: string, password: string) => Promise<void>;
+	logout: () => Promise<void>;
 }

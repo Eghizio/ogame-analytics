@@ -3,7 +3,7 @@ import { User } from "../types/auth";
 
 
 // mocking stuff
-const register = () => {};
+const register = async () => {};
 
 const login = async (email: string, password: string) => {
     const response = await fetch("/api/mocks/auth", {
@@ -15,7 +15,7 @@ const login = async (email: string, password: string) => {
     return data;
 };
 
-const logout = () => {};
+const logout = async () => {};
 
 const getCurrentUser = async () => {
     const user = await getJSON<User>("/api/mocks/auth");

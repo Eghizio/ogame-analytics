@@ -4,7 +4,7 @@ import { SelectProps } from "@chakra-ui/react";
 import { useOGameAPI } from "_hooks/useOGameAPI";
 import { useLocalStorage } from "_hooks/useLocalStorage";
 
-interface Props extends SelectProps {};
+interface Props extends SelectProps {}
 
 export const ServerSelect = (props: Props) => {
 	const { data, isLoading } = useOGameAPI<"universes">("universes");

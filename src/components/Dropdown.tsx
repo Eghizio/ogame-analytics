@@ -11,8 +11,7 @@ interface Props {
 
 export const Dropdown = ({ items = [], initialValue, onChange }: Props) => {
 	const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
-		const selectedValue =
-			event.target.options[event.target.selectedIndex].value;
+		const selectedValue = event.target.options[event.target.selectedIndex].value;
 		onChange(selectedValue);
 	};
 

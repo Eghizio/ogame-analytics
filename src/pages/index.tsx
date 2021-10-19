@@ -2,7 +2,6 @@ import { Box, Heading } from "@chakra-ui/layout";
 import { VStack } from "@chakra-ui/react";
 import { Link } from "../components/Link";
 
-
 const pages = [
 	{ href: "/", label: "Home" },
 	{ href: "/login", label: "Login" },
@@ -14,9 +13,9 @@ const Home = () => {
 		<Box>
 			<Heading>Home</Heading>
 			<VStack>
-			{pages.map(({ href, label }) => 			
-				<Link href={href}>{label}</Link>
-			)}
+				{pages.map(({ href, label }) => (
+					<Link href={href}>{label}</Link>
+				))}
 			</VStack>
 		</Box>
 	);

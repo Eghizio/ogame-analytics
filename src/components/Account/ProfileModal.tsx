@@ -1,7 +1,7 @@
-import { Box, Heading, Text, Center } from "@chakra-ui/layout";
 import {
+	Box,
+	Text,
 	Button,
-	Divider,
 	Input,
 	Modal,
 	ModalBody,
@@ -10,11 +10,9 @@ import {
 	ModalFooter,
 	ModalHeader,
 	ModalOverlay,
-	Select,
 	VStack,
 } from "@chakra-ui/react";
 import { ServerSelect } from "_components/Account/ServerSelect";
-import { useUniverseNames } from "_hooks/useUniverseNames";
 
 interface Props {
 	isOpen: boolean;

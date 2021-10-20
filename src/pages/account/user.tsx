@@ -1,5 +1,4 @@
-import { Box, Heading, Text, Center } from "@chakra-ui/layout";
-import { Divider, Input, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Divider, Input, VStack } from "@chakra-ui/react";
 import { withAuthRoute } from "_components/HOC/withAuthRoute";
 
 const User = () => {

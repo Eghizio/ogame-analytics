@@ -1,7 +1,6 @@
 import NextLink from "next/link";
 import { FormEventHandler, useState } from "react";
-import { Box, Center, Stack } from "@chakra-ui/layout";
-import { FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
+import { Box, Center, Stack, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { useAuth } from "../context/AuthProvider";
 import { debounce } from "../utils/debounce";
 import { useRouter } from "next/dist/client/router";

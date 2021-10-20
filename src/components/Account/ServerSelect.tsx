@@ -1,32 +1,26 @@
 import { ChangeEventHandler } from "react";
-import { Select } from "@chakra-ui/select";
-import { SelectProps, Spinner } from "@chakra-ui/react";
-import { useUniverseNames } from "_hooks/useUniverseNames";
+import { Select, SelectProps } from "@chakra-ui/react";
+import { useServersData } from "_hooks/useServersData";
 
 interface Props extends SelectProps {}
 
 export const ServerSelect = (props: Props) => {
-	const { data, isLoading } = useUniverseNames();
+	const serversDataQueries = useServersData();
 
 	const handleSelectChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
 		const selectedValue = event.target.options[event.target.selectedIndex].value;
 	};
 
-	if (isLoading)
-		return (
-			<Select {...props}>
-				<option></option>
-			</Select>
-		);
-
+	if (!serversDataQueries.every((query) => query.data)) return <Select placeholder="Loading..." {...props} />;
 	return (
 		<Select onChange={handleSelectChange} {...props}>
-			{data &&
-				data.map(({ id, name }) => (
-					<option key={id} value={id}>
+			{serversDataQueries.map(({ data: { number, name } }) => {
+				return (
+					<option key={number} value={number}>
 						{name}
 					</option>
-				))}
+				);
+			})}
 		</Select>
 	);
 };

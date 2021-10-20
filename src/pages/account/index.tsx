@@ -1,5 +1,4 @@
-import { Box, Heading, Text } from "@chakra-ui/layout";
-import { Button, Divider, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Divider, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { ProfileModal } from "_components/Account/ProfileModal";
 import { ServerSelect } from "_components/Account/ServerSelect";

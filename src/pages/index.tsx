@@ -1,5 +1,4 @@
-import { Box, Heading } from "@chakra-ui/layout";
-import { VStack } from "@chakra-ui/react";
+import { Box, Heading, VStack } from "@chakra-ui/react";
 import { Link } from "../components/Link";
 
 const pages = [

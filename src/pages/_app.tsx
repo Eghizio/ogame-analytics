@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRef } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -22,8 +23,11 @@ const MyApp = ({ Component, pageProps }) => {
 			<QueryClientProvider client={queryClient.current}>
 				<AuthProvider>
 					<>
-					<Navigation />
-					<Component {...pageProps} />
+						<Head>
+							<title>OGame Analytics</title>
+						</Head>
+						<Navigation />
+						<Component {...pageProps} />
 					</>
 				</AuthProvider>
 			</QueryClientProvider>

@@ -13,7 +13,9 @@ const Home = () => {
 			<Heading>Home</Heading>
 			<VStack>
 				{pages.map(({ href, label }) => (
-					<Link href={href}>{label}</Link>
+					<Link key={href} href={href}>
+						{label}
+					</Link>
 				))}
 			</VStack>
 		</Box>

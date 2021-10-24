@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ChakraProvider } from "@chakra-ui/react";
 import { AuthProvider } from "_context/AuthProvider";
-import { Navigation } from "_components/Navigation/Navigation";
+import { Header } from "_components/Header/Header";
 import "../styles/globals.css";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -27,7 +27,7 @@ const MyApp = ({ Component, pageProps }) => {
 						<Head>
 							<title>OGame Analytics</title>
 						</Head>
-						<Navigation />
+						<Header />
 						<Component {...pageProps} />
 					</>
 				</AuthProvider>

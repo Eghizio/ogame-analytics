@@ -1,5 +1,6 @@
 import { Flex, Heading, HStack, Spacer } from "@chakra-ui/react";
 import { Link } from "_components/Link";
+import { Navigation } from "_components/Header/Navigation";
 
 const pages = [
 	{ href: "/", label: "Home" },
@@ -7,18 +8,12 @@ const pages = [
 	{ href: "/account", label: "Account" },
 ] as const;
 
-export const Navigation = () => {
+export const Header = () => {
 	return (
-		<Flex as="nav" p="4" bg="teal.400" marginBottom="4px">
+		<HStack as="header" p="4" bg="teal.400" marginBottom="4px">
 			<Heading>OGame Analytics</Heading>
 			<Spacer />
-			<HStack as="ul" px="16" spacing="4">
-				{pages.map(({ href, label }) => (
-					<Link key={href} href={href}>
-						{label}
-					</Link>
-				))}
-			</HStack>
-		</Flex>
+			<Navigation />
+		</HStack>
 	);
 };

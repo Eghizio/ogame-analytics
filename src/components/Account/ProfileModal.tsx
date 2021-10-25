@@ -11,6 +11,8 @@ import {
 	ModalHeader,
 	ModalOverlay,
 	VStack,
+	FormControl,
+	FormLabel,
 } from "@chakra-ui/react";
 import { ServerSelect } from "_components/Account/ServerSelect";
 
@@ -28,19 +30,18 @@ export const ProfileModal = ({ isOpen, onClose }: Props) => {
 				<ModalCloseButton />
 				<ModalBody>
 					<VStack>
-						<Box>
-							<Text>Universe</Text>
+						<FormControl isRequired>
+							<FormLabel>Universe</FormLabel>
 							<ServerSelect w="300px" />
-							{/* <Input type="text" /> */}
-						</Box>
-						<Box>
-							<Text>Nickname</Text>
+						</FormControl>
+						<FormControl>
+							<FormLabel>Nickname</FormLabel>
 							<Input type="text" w="300px" />
-						</Box>
-						<Box>
-							<Text>User ID</Text>
+						</FormControl>
+						<FormControl>
+							<FormLabel>User ID</FormLabel>
 							<Input type="text" w="300px" />
-						</Box>
+						</FormControl>
 					</VStack>
 				</ModalBody>
 				<ModalFooter justifyContent="center">

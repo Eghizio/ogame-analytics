@@ -11,7 +11,9 @@ export const ServerSelect = (props: Props) => {
 		const selectedValue = event.target.options[event.target.selectedIndex].value;
 	};
 
-	if (!serversDataQueries.every((query) => query.data)) return <Select placeholder="Loading..." {...props} />;
+	const isReady = serversDataQueries.every((query) => query.data);
+
+	if (!isReady) return <Select placeholder="Loading..." {...props} />;
 	return (
 		<Select onChange={handleSelectChange} {...props}>
 			{serversDataQueries.map(({ data: { number, name } }) => {

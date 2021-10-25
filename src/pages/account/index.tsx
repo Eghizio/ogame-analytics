@@ -1,27 +1,42 @@
-import { Box, Heading, Text, Button, Divider, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { Box, Heading, Button, Divider, Flex, Spacer, WrapItem, SimpleGrid, useDisclosure } from "@chakra-ui/react";
+import { ProfileCard } from "_components/Account/ProfileCard";
 import { ProfileModal } from "_components/Account/ProfileModal";
-import { ServerSelect } from "_components/Account/ServerSelect";
 import { Link } from "_components/Link";
+import { mockedProfiles } from "_constants/data/mocks";
 
 const Account = () => {
-	const [isOpened, setIsOpened] = useState(false);
+	const { isOpen, onOpen, onClose } = useDisclosure();
 
-	// select profile card instead of ServerSelect (used within modal)
+	// maybe decouple ProfilesList?
 
 	return (
 		<Box p="4">
-			<Heading>Account</Heading>
+			<Flex>
+				<Heading>Account</Heading>
+				<Spacer />
+				<Link href="/account/user">
+					<Button>User</Button>
+				</Link>
+			</Flex>
 			<Divider my="4" />
-			<VStack align="stretch">
-				<Link href="/account/user">User</Link>
-				<Box>
-					<Text>Selected Server ID:</Text>
-					<ServerSelect w="300px" />
-				</Box>
-			</VStack>
-			<Button onClick={() => setIsOpened(true)}>Add profile</Button>
-			<ProfileModal isOpen={isOpened} onClose={() => setIsOpened(false)} />
+
+			<SimpleGrid minChildWidth="300px" spacing="12" p="16">
+				{mockedProfiles.map((profile) => (
+					<WrapItem key={profile.serverID}>
+						<ProfileCard profile={profile} />
+					</WrapItem>
+				))}
+				<ProfileCard
+					profile={{
+						serverID: "",
+						serverName: "Add profile",
+						userID: "",
+						userName: "NEW",
+					}}
+					onClick={onOpen}
+				/>
+			</SimpleGrid>
+			<ProfileModal isOpen={isOpen} onClose={onClose} />
 		</Box>
 	);
 };

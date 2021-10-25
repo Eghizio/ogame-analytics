@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { ComponentType, useEffect } from "react";
 import { Center, Text } from "@chakra-ui/react";
 import { useAuth } from "_context/AuthProvider";
 
 // need Component type
-export const withAuthRoute = (Component, redirectTo = "/login") => {
+export const withAuthRoute = (Component: ComponentType, redirectTo = "/login") => {
 	const AuthRoute = (props) => {
 		const { user } = useAuth();
 		const router = useRouter();

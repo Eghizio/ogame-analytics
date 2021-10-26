@@ -1,5 +1,5 @@
 import { HStack, useMediaQuery } from "@chakra-ui/react";
-import { Link } from "_components/Link";
+import { Link } from "_components/shared/Link";
 import { DrawerNavigation } from "_components/Header/DrawerNavigation";
 
 const pages = [

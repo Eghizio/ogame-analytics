@@ -12,7 +12,7 @@ import {
 	VStack,
 } from "@chakra-ui/react";
 // import { HamburgerIcon } from "@chakra-ui/icon"
-import { Link } from "_components/Link";
+import { Link } from "_components/shared/Link";
 
 interface Props {
 	pages: {

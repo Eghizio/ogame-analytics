@@ -1,7 +1,7 @@
 import { Box, Heading, Button, Divider, Flex, Spacer, WrapItem, SimpleGrid, useDisclosure } from "@chakra-ui/react";
 import { ProfileCard } from "_components/Account/ProfileCard";
 import { AddProfileModal } from "_components/Account/AddProfileModal";
-import { Link } from "_components/Link";
+import { Link } from "_components/shared/Link";
 import { mockedProfiles } from "_constants/data/mocks";
 
 const Account = () => {
@@ -21,11 +21,6 @@ const Account = () => {
 			<Divider my="4" />
 
 			<SimpleGrid minChildWidth="300px" spacing="12" p="16">
-				{mockedProfiles.map((profile) => (
-					<WrapItem key={profile.serverID}>
-						<ProfileCard profile={profile} />
-					</WrapItem>
-				))}
 				<ProfileCard
 					profile={{
 						serverID: "",
@@ -34,7 +29,13 @@ const Account = () => {
 						userName: "NEW",
 					}}
 					onClick={onOpen}
+					border="2px dashed gray"
 				/>
+				{mockedProfiles.map((profile) => (
+					<WrapItem key={profile.serverID}>
+						<ProfileCard profile={profile} />
+					</WrapItem>
+				))}
 			</SimpleGrid>
 			<AddProfileModal isOpen={isOpen} onClose={onClose} />
 		</Box>

@@ -1,5 +1,5 @@
 import { Box, Heading, VStack } from "@chakra-ui/react";
-import { Link } from "../components/Link";
+import { Link } from "../components/shared/Link";
 
 const pages = [
 	{ href: "/", label: "Home" },

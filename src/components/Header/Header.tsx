@@ -1,5 +1,5 @@
 import { Flex, Heading, HStack, Spacer } from "@chakra-ui/react";
-import { Link } from "_components/Link";
+import { Link } from "_components/shared/Link";
 import { Navigation } from "_components/Header/Navigation";
 
 const pages = [

@@ -61,14 +61,6 @@ export const AddProfileModal = ({ isOpen, onClose }: Props) => {
 									handleChange={setSelectedPlayerID}
 								/>
 							</FormControl>
-							{/* <FormControl>
-							<FormLabel>Nickname</FormLabel>
-							<Input type="text" w="300px" />
-							</FormControl>
-							<FormControl>
-								<FormLabel>User ID</FormLabel>
-								<Input type="text" w="300px" />
-							</FormControl> */}
 						</VStack>
 					</ModalBody>
 					<ModalFooter justifyContent="center">

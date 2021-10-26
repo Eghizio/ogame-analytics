@@ -1,6 +1,6 @@
 import { Box, Heading, Button, Divider, Flex, Spacer, SimpleGrid, LinkOverlay, LinkBox } from "@chakra-ui/react";
 import { useState } from "react";
-import { Link } from "_components/Link";
+import { Link } from "_components/shared/Link";
 
 const Profile = () => {
 	// select profile card instead of ServerSelect (used within modal)

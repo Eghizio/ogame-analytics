@@ -2,13 +2,16 @@ import { ChangeEventHandler } from "react";
 import { Select, SelectProps } from "@chakra-ui/react";
 import { useServersData } from "_hooks/useServersData";
 
-interface Props extends SelectProps {}
+interface Props extends SelectProps {
+	handleChange: (selectedValue: string) => void;
+}
 
-export const ServerSelect = (props: Props) => {
+export const ServerSelect = ({ handleChange, ...props }: Props) => {
 	const serversDataQueries = useServersData();
 
 	const handleSelectChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
 		const selectedValue = event.target.options[event.target.selectedIndex].value;
+		handleChange(selectedValue);
 	};
 
 	const isReady = serversDataQueries.every((query) => query.data);
@@ -19,7 +22,7 @@ export const ServerSelect = (props: Props) => {
 			{serversDataQueries.map(({ data: { number, name } }) => {
 				return (
 					<option key={number} value={number}>
-						{name}
+						{name || number}
 					</option>
 				);
 			})}

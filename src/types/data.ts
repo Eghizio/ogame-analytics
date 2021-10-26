@@ -3,4 +3,7 @@ export interface ProfileData {
 	serverName: string;
 	userID: string;
 	userName: string;
+	// allianceID: string;
+	// allianceName: string;
+	// allianceTag: string;
 };

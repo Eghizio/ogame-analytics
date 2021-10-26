@@ -1,6 +1,6 @@
 import { Box, Heading, Button, Divider, Flex, Spacer, WrapItem, SimpleGrid, useDisclosure } from "@chakra-ui/react";
 import { ProfileCard } from "_components/Account/ProfileCard";
-import { ProfileModal } from "_components/Account/ProfileModal";
+import { AddProfileModal } from "_components/Account/AddProfileModal";
 import { Link } from "_components/Link";
 import { mockedProfiles } from "_constants/data/mocks";
 
@@ -36,7 +36,7 @@ const Account = () => {
 					onClick={onOpen}
 				/>
 			</SimpleGrid>
-			<ProfileModal isOpen={isOpen} onClose={onClose} />
+			<AddProfileModal isOpen={isOpen} onClose={onClose} />
 		</Box>
 	);
 };
